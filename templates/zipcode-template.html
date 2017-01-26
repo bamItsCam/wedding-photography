@@ -1,0 +1,14 @@
+<div class="alert alert-info">
+    <form class="form-inline" id="zipcode-form" style="width:100%;">
+        <div class="row center-block" style="width:100%;">
+            <div class="form-group bg-info col-xs-9 col-sm-8 col-md-offset-1 col-md-7">
+                <label for="zipcode" class="hidden">Zipcode:</label>
+                <input type="text" name="zipcode" id="zipcode" class="form-control" pattern="\d{5,5}(-\d{4,4})?" title="XXXXX or XXXXX-XXXX" placeholder="Enter zip code" required>
+            </div>
+            <div class="col-xs-2 col-sm-3 col-md-2"><button style="padding-top: 10px" type="submit" class="btn btn-success">Submit</button></div>
+        </div>
+    </form>
+    <div id="near-response" class="alert alert-success hidden">Great! We have offices near you! <a href="/contact/">Contact us</a> to learn more.</div>
+    <div id="far-response" class="alert alert-success hidden">Sorry, we don't seem to service your location. But don't despair, <a href="/contact/">contact us</a> to see if we can work something out.</div>
+    <div id="error-response" class="alert alert-danger hidden">Sorry, something went wrong. Please check your zipcode and try again.</div>
+</div>

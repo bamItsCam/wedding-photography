@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Testing Page</title>
+        <meta name="viewport" content="width=device-width">
+
+
+        <!-- Javascript (it's on top since this is just a testing file) -->
+        <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
+        <script>
+            Parse.initialize("QFwL0KBO8bNKnb1PKtF2a71BFvfbIVTD5xlbG1Ss", "2zKz98X7BnFka0Dd25tIY0ALkZk4oVlZy6HKBETU");
+
+            function addUserToAdmin () {
+                // This account is an admin so it can add other uses to the admin role
+                Parse.User.logIn("dehli@gatech.edu", "password").then(function(user) {
+
+                    var userQuery = new Parse.Query(Parse.User);
+                    userQuery.equalTo("username", "greysciolist66@yahoo.com");
+                    userQuery.first().then(function (userToAdd) {
+                        // Add user to the Administrator role
+                        var queryRole = new Parse.Query(Parse.Role);
+                        queryRole.equalTo("name", "Administrator");
+                        queryRole.first().then(function(role) {
+                            var userRelation = role.relation("users");
+
+                            userRelation.add(userToAdd);
+                            role.save().then(function() {
+                                alert("Success");
+                            });
+                        });
+                    })
+
+
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Add admin relationship -->
+        <div>
+            <button type="button" onclick="addUserToAdmin()">Add user to admin</button>
+        </div>
+
+    </body>
+
+</html>

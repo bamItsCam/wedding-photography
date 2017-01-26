@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Contact Us</div>
+    <div class="panel-body">
+        <p>We'd love to hear from you!<br><span class="text-muted">* are required</span></p>
+        <form name="contact" id="contact-form">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name*:</label>
+                <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Enter name" required>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email*:</label>
+                <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Enter email" required>
+            </div>
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password*:</label>
+                <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Enter password" required>
+            </div>
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone" class="form-control input-sm" pattern="\x28?\d{3}\x29?\x20?\x2D?\x20?\d{3}\x20?\x2D?\x20?\d{4}" title="(XXX) XXX-XXXX or XXX-XXX-XXXX" placeholder="Enter phone number"> <!-- parentheses(): \28 and \29, dash: \2D, space: \20 -->
+            </div>
+            <!-- Zip code -->
+            <div class="form-group">
+                <label for="zip">Zipcode*:</label>
+                <input type="text" name="zip" id="zip" class="form-control input-sm" pattern="\d{5,5}(-\d{4,4})?" title="XXXXX or XXXXX-XXXX" placeholder="Enter zip code" required>
+            </div>
+            <!-- Wedding date -->
+            <div class="form-group">
+                <label for="mrgdate">Wedding Date:</label>
+                <input type="date" name="mrgdate" id="mrgdate" class="form-control input-sm" min={{ site.time | date: "%Y-%m-%d"}} placeholder="Enter wedding date" title="mm/dd/yyyy or yyyy-mm-dd">
+            </div>
+            <div class="form-group">
+                <div id="response"></div> <!-- Space for alerts to user -->
+                <button type="submit" id="submit" class="btn btn-primary col-xs-6 col-xs-offset-3">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

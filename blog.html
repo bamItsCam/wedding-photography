@@ -1,0 +1,39 @@
+---
+layout: fluid
+title: Blog
+permalink: /blog/
+subtitle: see what we've been up to
+---
+<!--Date Formatting: https://docs.shopify.com/themes/liquid-documentation/filters/additional-filters#date-->
+<div class="blog banner text-uppercase">
+    <div class="row page_top">
+        <div class="col-xs-4 banner_line"><hr></div>
+        <div class="col-xs-4 banner_text"><b>The Blog</b></div>
+        <div class="col-xs-4 banner_line"><hr></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8 banner_text">Sometimes, we're pretty inspirational</div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8 banner_text"><p>Learn about who we are and what we've been up to</p></div>
+        <div class="col-xs-2"></div>
+    </div>
+</div>
+<div class="page_content">
+    <div class="col-sm-2"></div>
+    <ul class="list-unstyled col-sm-7">
+        {% for post in site.posts %}
+        <li class="row">
+            <div><a class="post-link" href="{{ post.url | prepend: site.baseurl}}">{{post.title}}</a></div>
+            <div class="post_subtext">
+                {% if post.author %} Published by <b>{{ post.author }}{% endif %}</b> {% if post.category %} in <b>{{ post.category }}{% endif %}</b> on <b>{{ post.date | date: "%B %-d, %Y" }}</b>
+            </div>
+            <div class="post_desc">{{post.description}}</div>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="col-sm-3"></div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "Wedding Photography": {
+      "applicationId": "QFwL0KBO8bNKnb1PKtF2a71BFvfbIVTD5xlbG1Ss",
+      "masterKey": "5DwAVF1PEDaAAw1XdG0cTG32s5I0mUTPTQwtYx9d"
+    },
+    "_default": {
+      "link": "Wedding Photography"
+    }
+  }
+}
